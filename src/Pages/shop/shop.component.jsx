@@ -1,6 +1,6 @@
 import React from 'react';
 import shopData from './shop.data';
-import ColllectionPreview from '../../Components/collection-preview/collection-preview.component'
+import ColllectionPreview from '../../Components/collection-preview/collection-preview.component';
 
 class Shop extends React.Component{
     constructor(props)
@@ -11,7 +11,6 @@ class Shop extends React.Component{
             collection: shopData,
         }
     }
-
     render(){
         const collection = this.state.collection;
         return(

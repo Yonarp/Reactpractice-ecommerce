@@ -1,0 +1,15 @@
+.custom-button{
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    border: 2px solid black;
+    padding:  1rem 2rem;
+    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    &:hover{
+        background: black;
+        color: white;
+    }
+}

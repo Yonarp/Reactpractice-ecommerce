@@ -8,20 +8,20 @@ import {auth,createUserProfile} from '../../firebase/firebase.utils';
 
 class SignUp extends React.Component{
     constructor(){
-        super()
+        super();
 
         this.state = {
             displayName: '',
             email: '',
             password: '',
             confirmPassword: ''
-        }
+        };
     }
 
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        const {displayName,email,password,confirmPassword} = this.state;
+        const { displayName,email,password,confirmPassword} = this.state;
 
         if(password !== confirmPassword){
             alert('Passwords Dont Match');
@@ -33,21 +33,21 @@ class SignUp extends React.Component{
             await createUserProfile(user, {displayName});
 
         }catch(error){
+            this.setState({
+                displayName: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
+    
+            })
             console.error(error);
         }
-        this.setState({
-            displayName: '',
-            email: '',
-            password: '',
-            confirmPassword: ''
-
-        })
 
 
     }
 
     handleChange = e => {
-        const {name , value } = e.target.value;
+        const {name , value } = e.target;
         
         this.setState({[name]: value});
     }
@@ -62,7 +62,7 @@ class SignUp extends React.Component{
                     <FormInput
                     type = 'text'
                     name = 'displayName'
-                    onChange= {this.handleChange}
+                    handleChange= {this.handleChange}
                     value = {displayName}
                     required
                     label = 'User Name'
@@ -89,7 +89,7 @@ class SignUp extends React.Component{
 
                     <FormInput
                     type = 'password'
-                    name = 'confirm passwrod'
+                    name = 'confirmPassword'
                     value = {confirmPassword}
                     handleChange= {this.handleChange}
                     label = 'Confirm Password'
